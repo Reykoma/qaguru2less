@@ -21,7 +21,7 @@ public class TextBoxTest {
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.headless = true;
+//        Configuration.headless = true;
         Configuration.browserSize = "1280x1800";
         open("/automation-practice-form");
     }
@@ -38,30 +38,30 @@ public class TextBoxTest {
         $(".react-datepicker__year-select").selectOptionContainingText("1989");
         $(".react-datepicker__month-select").selectOptionContainingText("June");
         $(".react-datepicker__day.react-datepicker__day--026").click();
-
         $("#subjectsInput").setValue("Arts").pressEnter();
-        $(byText("Reading")).click();
-
+        $("#hobbiesWrapper").find(byText("Reading")).click();
         $("#uploadPicture").uploadFromClasspath("img/test.jpeg");
-
         $("#currentAddress").setValue("moscow len pr 37");
-
-//        $(byText("Select State"));//.selectOptionContainingText("Haryana"); //Select State
         $("#stateCity-label").scrollTo();
         $("#state").click();
         $("#react-select-3-option-1").click();
-
         $("#city").click();
         $("#react-select-4-option-0").click();
-
         $("#submit").click();
-//        $(".modal-content").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Alex Ivanov"),text("Ivanov@gmail.com"),text("1234567890"),text("test.jpeg"),text("moscow len pr 37"));
+        
+        $(".table-responsive").shouldHave(
+                text("Alex Ivanov"),
+                text("Ivanov@gmail.com"),
+                text("Male"),
+                text("1234567890"),
+                text("26 June,1989"),
+                text("Arts"),
+                text("Reading"),
+                text("test.jpeg"),
+                text("moscow len pr 37"),
+                text("Uttar Pradesh Agra"));
 
-        System.out.println($(".table-responsive"));
-
-        //#city
-        System.out.println("1");
+//        System.out.println($(".table-responsive"));
 
 
 
