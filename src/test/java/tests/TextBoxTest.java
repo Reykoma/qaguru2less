@@ -48,7 +48,7 @@ public class TextBoxTest {
         $("#city").click();
         $("#react-select-4-option-0").click();
         $("#submit").click();
-        
+
         $(".table-responsive").shouldHave(
                 text("Alex Ivanov"),
                 text("Ivanov@gmail.com"),
